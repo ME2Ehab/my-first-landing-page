@@ -1,0 +1,73 @@
+<!DOCTYPE >
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The Greatest minds of history</title>
+  <!-- Load Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  <!-- Load Styles -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <!-- HTML Follows BEM naming conventions 
+  IDs are only used for sections to connect menu achors to sections -->
+  <header class="page__header">
+    <nav class="navbar__menu">
+      <!-- Navigation starts as empty UL that will be populated with JS -->
+      <ul class= "NavigationBAR" id="navbar__list"></ul>
+    </nav>
+  </header>
+  <main>
+    <header class="main__hero">
+      <h1>Greatest minds </h1>
+    </header>
+    <!-- Each Section has an ID (used for the anchor) and 
+    a data attribute that will populate the li node.
+    Adding more sections will automatically populate nav.
+    The first section is set to active class by default -->
+    <section id="section1" data-nav="Newton" class="youractiveclass">
+      <div class="landing__container">
+        <h2>Isaac Newton</h2>
+        <p>When Newton received the bachelor’s degree in April 1665, the most remarkable undergraduate career in the history of university education had passed unrecognized. On his own, without formal guidance, he had sought out the new philosophy and the new mathematics and made them his own, but he had confined the progress of his studies to his notebooks. Then, in 1665, the plague closed the university, and for most of the following two years he was forced to stay at his home, contemplating at leisure what he had learned. During the plague years Newton laid the foundations of the calculus and extended an earlier insight into an essay, “Of Colours,” which contains most of the ideas elaborated in his Opticks. It was during this time that he examined the elements of circular motion and, applying his analysis to the Moon and the planets, derived the inverse square relation that the radially directed force acting on a planet decreases with the square of its distance from the Sun—which was later crucial to the law of universal gravitation. The world heard nothing of these discoveries.</p>
+
+        <p>he wrote:Isaac Newton is widely known for his published work Philosophiae Naturalis Principia Mathematica (1687), commonly known as the Principia. His laws of motion first appeared in this work. It is one of the most important single works in the history of modern science.<br> And was famous and well known for his discoveries in optics (white light composition) and mathematics (calculus), it is his formulation of the three laws of motion—the basic principles of modern physics—for which he is most famous. His formulation of the laws of motion resulted in the law of universal gravitation.</p>
+      </div>
+    </section>
+    <section id="section2" data-nav="Einstein">
+      <div class="landing__container">
+        <h2>Albert Einstein</h2>
+        <p>he was famous for devising his theory of relativity, which revolutionized our understanding of space, time, gravity, and the universe <br> and what made him a genuis is that "Einstein programmed his own brain," Falk says, adding that when the field of physics was ripe for new insights, "he had the right brain in the right place at the right time."</p>
+
+        <p> <strong>Career highlights</strong><br>
+          Einstein's career sent him to multiple countries. He earned his doctorate from the University of Zurich in 1905, and subsequently took on professor positions in Zurich (1909), Prague (1911) and Zurich again (1912). Next, he moved to Berlin to become director of the Kaiser Wilhelm Physical Institute and a professor at the University of Berlin (1914). He also became a German citizen. 
+          A major validation of Einstein's work came in 1919, when Sir Arthur Eddington, secretary of the Royal Astronomical Society, led an expedition to Africa that measured the position of stars during a total solar eclipse. The group found that the position of stars was shifted due to the bending of light around the sun. (In 2008, a BBC/HBO production dramatized the story in "Einstein and Eddington.") 
+          Einstein remained in Germany until 1933, when dictator Adolf Hitler rose to power. The physicist then renounced his German citizenship and moved to the United States to become a professor of theoretical physics at Princeton. He became a U.S. citizen in 1940 and retired in 1945.
+          Einstein remained active in the physics community throughout his later years. In 1939, he famously penned a letter to President Franklin D. Roosevelt warning that uranium could be used for an atomic bomb. 
+          Late in Einstein's life, he engaged in a series of private debates with physicist Niels Bohr about the validity of quantum theory. Bohr's theories held the day, and Einstein later incorporated quantum theory in his own calculations.</p>
+      </div>
+    </section>
+    <section id="section3" data-nav="Hawking">
+      <div class="landing__container">
+        <h2>Stephen Hawking</h2>
+        <p>Stephen Hawking was one of the greatest theoretical physicists of the modern age. Best known for his appearances in popular media and his lifelong battle against debilitating illness, his true impact on posterity comes from his brilliant five-decade career in science.</p>
+        <br><p>What Hawking did was increase our understanding of what a black hole is. Through his mathematical theorems, Hawking was able to “prove” exceptions in Einstein’s theories of gravity. His work showed that there were points in the universe where those gravitational theories broke down. Black holes formed some of these “singularities.”
+          Hawking’s interest didn’t stop there. He also theorized about the laws of thermodynamics. Before him, the main concept in physics was that black holes radiated no energy and thus, could not have entropy. Hawking’s mathematical concepts proved a black hole can emit radiation at the quantum level. This radiation is now called Hawking radiation.</p>
+      </div>
+    </section>
+    <section id="section4" data-nav="Degrasse Tyson">
+      <div class="landing__container">
+        <h2>Neil Degrasse Tyson</h2>
+        <p>Well this one is my own opinion as I think that he is the greatest living mind at the moment as he simplifies physics and astronomy, while Hawking is the genuis of this century, tyson is the living genuis and he continues the trail of simplifing the science to people </p><br>
+        <p>he made several books like "astrophysics for people in a hurry" and he have a show and a podcast called star talk <br> 
+         what I really like about him is the way he thinks and the way he wants others to think also his way of explaining things makes things look easy no matter how hard it is so I am choosing him over some other genuises because he is the living example.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="page__footer">
+    <p>&copy Udacity</p><hr>
+    <p>This is based on personal opinion.</p>
+  </footer>
+  <script src="js/app.js"></script>  <!-- under the footer because of the way the browser reads the dom  -->
+</body>
+</html>
