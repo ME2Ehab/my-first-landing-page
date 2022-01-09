@@ -22,7 +22,7 @@
 const navSection = document.querySelectorAll('section');//selecting all of the section elements
 const navID= document.getElementById('navbar__list');//getting the navigation bar by ID(like fetching it)
 const fragmentDoc= document.createDocumentFragment();//made a document fragment because it will load in the background and won't be shown(improved performance)
-
+const takeLink = document.querySelectorAll('a');
 
 
 /**explaining the processs : making the navigation bar by a function to execute a block of code by getting a loop for every section got by the query Selector,
@@ -30,9 +30,12 @@ const fragmentDoc= document.createDocumentFragment();//made a document fragment 
  * after that we make a href and add a class to the link(anchor) after that we make the list as a parent
  *  and the anchor as the child then the list will be the child of the doc. frag. 
  * and lastly we just add the Doc.Frag. as a child of the navigation bar that we fetched by ID.
+ * then we added an event listner which waits till you input a certain thing to execute something 
+ * so in my case on click on the section name from the nav bar and after preventing the default action to happen, it scrolls into the section smoothly.
  */
 
-(function makingNavbarList(){ for (const section of navSection){
+(function makingNavbarList(){
+   for (let section of navSection){
     const makeList = document.createElement('li')
     const makeLink = document.createElement('a')
     makeLink.textContent = section.dataset.nav
@@ -41,6 +44,11 @@ const fragmentDoc= document.createDocumentFragment();//made a document fragment 
     makeLink.classList.add("menu__link")
     makeList.appendChild(makeLink)
     fragmentDoc.appendChild(makeList)
+
+    makeList.addEventListener("click", function (doIt){
+      doIt.preventDefault();
+      section.scrollIntoView({behavior:"smooth"})
+    })
   }
  })()
 navID.appendChild(fragmentDoc);
@@ -48,59 +56,52 @@ navID.appendChild(fragmentDoc);
 
 
 
-
-
-//here we made a function just to remove the class (had to change the class name from your-active-class into youractiveclass) because it didn't work with the first name.
-//and it work by fetching the first section and then removing it's class
-(function removeclass(){
-  sectionx= document.getElementById('section1')
-sectionx.classList.remove('youractiveclass');
-})()
-
-// Scroll to anchor ID using scrollTO event
-/** made a function that would execute immediatly then added an event listner by the click on the link in nav it would start the event of preventing the default action
- * then it would fetch the href and start without the '#' then making it a constant to recall it faster and then made that by scrolling it would make a smooth scroll..
- * .. toward the section(commented out because it is not working (will work on it later just to meet the rubric requirments first))
+/** here on scroll (found it in w3schools) and the tutor at discourse helped me
+ * so we make a loop that for every section of the section in the navSection query we are gonna do the next
+ * make a viewedpart variable that uses the getboundingclient to tell what the viewer is watching now
+ * and then another variable for the links which gets the list elements
+ *  (the discourse tutor really helped me in this part especially that I was choosing anchor elemnt <a>)
+ * then I made a loop for each (because adding the youractiveclass didn't work in the main loop so I tried to make it like this)
+ * so the prarameter is viewedNow which means what the user is gonna be watching on their screen and
+ *  made an if conditional that if the parameter is in the area of 200 or less and more than the -300 
+ * then it would add a new class and if not then it would remove it 
+ * (i know the code looks big but I usually fix what I am doing by making a new function just seems easier)
+ * and where if the viewedpart where I  made a variable holding the getboundingclient (but was lazy to change the upper code)
+ *  and I made another loop and then said that it should remove the class active if it was there and then see if the link content is the same as the dataNav
+ * (you can see it in the browser just see the navBar I used it to name the sections in the nvaigation as well) then it would add the class active
  */
-/**(function scrllIt(){
-makeLink.addEventListner('click', (evt) =>{
-  evt.preventDefault();
-const startingSection = document.getElementById(evt.target.getAttribute('href').subString(1));
-  startingSection.scrollIntoView({
-   behavior:'smooth',
-   block: 'center'
-  });
-});
-})()*/
 
 
-
-//here is the function of responsive burger nav (found it in w3schools but will work on it later)
-/**(function burgerMenu(){
-  
-})()*/
-
-/** here on scroll (found it in w3schools)
- * we make a function with a parameter called (viewed now) like what is on the screen so after a test it came as 150 and -400 for me 
- * so As the webinar stated we remove all classes just the function up there and then we make that by scrolling this function would work and should have a conditional
- * so in case that thing is more or equal than -500 in the view and at the same time it is less or equal than 100 then it would add the yourActiveClass
- * ps. there is gap between Albert Einstein and stephen hawking where the class isn't active even after several tests and change in numbers.
- * the list doesn't work for some reason so I commented it out till I fix it.
- */
-window.onscroll = function() {
-  navSection.forEach(function(viewedNow){
-    //const fetchNavList = document.querySelectorAll('li');
-    if (viewedNow.getBoundingClientRect().top <= 100 && viewedNow.getBoundingClientRect().top >= -500){
-      viewedNow.classList.add('youractiveclass');
-     // fetchNavList.classList.add('active');
+window.onscroll = function () {
+  for (let section of navSection) {
+    const viewdPart = section.getBoundingClientRect();
+    const listed = document.querySelectorAll("li");
+    //line after the decleration of variables
+    navSection.forEach(function(viewedNow){
+      if (viewedNow.getBoundingClientRect().top <= 200 && viewedNow.getBoundingClientRect().top >= -300){
+        viewedNow.classList.add('youractiveclass');
+      }
+      else {
+        viewedNow.classList.remove('youractiveclass');
+       
+      }
+    });
+    //line just to know the function (you can say to make it easier to read)
+    if (viewdPart.top > -1000 && viewdPart.top < 300) {
+    
+      for (let link of listed) {
+        link.classList.remove("active");
+        if (link.textContent === section.getAttribute("data-nav")) {
+          link.classList.add("active");
+        }
+      }
     }
-    else {
-      viewedNow.classList.remove('youractiveclass');
-     // fetchNavList.classList.remove('active');
-    }
-  });
-}
+  }
+};
+
+
 //all of my sources are in the Read ME
 
 
- 
+
+

@@ -123,6 +123,7 @@ section {
         max-width: 50em;
         padding: 4em;
     }
+    
 }
 
 section:nth-of-type(even) .landing__container {
@@ -223,14 +224,17 @@ section.youractiveclass .landing__container::after {
 		           rotate(-360deg);
 	}
 }
-/** made to overwrite any other class
-@media all and (max-width: 500px){
+/** made to overwrite any other class*/
+@media only screen and (max-width: 600px){
     .navbar__menu .li {
         display: block;
     }
+    a { 
+        color: gold; background-color: gray;
+    }
     
-} */
+} 
 
 .active {
-    background-color: #333;
+    background-color: rgb(18, 119, 214);
 }
